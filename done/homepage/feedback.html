@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewpoint" content="intial-scale=1, width=device-width">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+        <link href="styles.css" rel="stylesheet">
+        <script src="feedback.js"></script>
+        <link rel="icon" href="content/feedback.png">
+        <title>Feedback</title>
+    </head>
+    <body>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Feedback</li>
+            </ol>
+        </nav>
+        <div class="textfield">
+            <form id="beform">
+                <div class="mb-3">
+                  <label for="FormName" class="form-label">Name</label>
+                  <input type="name" class="form-control" id="InputName" aria-describedby="emailHelp" style="background-color:#E0E1DD;">
+                </div>
+                <div class="mb-3">
+                  <label for="FormRaitng" class="form-label">Rating</label>
+                  <select class="form-select" aria-label="Default select example" style="background-color:#E0E1DD;">
+                    <option value="5" selected>5</option>
+                    <option value="4">4</option>
+                    <option value="3">3</option>
+                    <option value="2">2</option>
+                    <option value="1">1</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="FormFeedback" class="form-label">Feedback</label>
+                    <textarea class="form-control" placeholder="Feel free to say whatever you have in mind." id="FormFeedback" style="height: 100px; background-color:#E0E1DD;"></textarea>
+                </div>
+                <button type="button" class="btn btn-primary" id="btn01">Submit</button>
+            </form>
+            <div id="afform">
+                <p>Thanks for giving your feedback.</p>
+                <button type="button" class="btn btn-primary" id="btn02">Want to Re-submit ?</button>
+            </div>
+        </div>
+    </body>
+</html>

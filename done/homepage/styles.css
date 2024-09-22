@@ -1,0 +1,167 @@
+/* Resources :
+colors: https://coolors.co/palette/0d1b2a-1b263b-415a77-778da9-e0e1dd
+icons: https://icons8.com/
+fonts: https://fonts.google.com/
+gifs: https://giphy.com/
+*/
+
+/*css for whole websites theme*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gentium+Book+Plus&family=Noto+Serif+Georgian&family=Rubik+Distressed&family=Rubik+Microbe&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+    /*cursor: crosshair;*/
+}
+
+body {
+    background-color: #0D1B2A;
+}
+
+/*css for Homepage*/
+
+.navbar {
+    background-color: #1B263B;
+}
+
+.navbar-brand.h1 {
+    color: #E0E1DD;
+}
+
+.nav-link {
+    color :#778DA9;
+}
+
+.sub {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 85vh;
+    padding: 10%;
+    text-align: center;
+    color: #E0E1DD;
+}
+
+.sub h1 {
+    font-weight: bold;
+    margin-bottom: 3%;
+}
+
+.sub p {
+    font-size: 18px;
+}
+
+.sub a {
+    color: #0D1B2A;
+    text-decoration: none;
+    background: #E0E1DD;
+    padding: 5px 10px;
+    margin-top: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.sub a:hover{
+    letter-spacing: 3px;
+    color: #0D1B2A;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    font-size: 12px;
+    color: #E0E1DD;
+}
+
+footer a {
+    color: #E0E1DD;
+}
+
+footer a:hover{
+    color: #778DA9;
+}
+
+/*css for all Sub-pages*/
+
+.breadcrumb {
+    margin: 10px;
+    padding: 10px 15px;
+    background: #1B263B;
+    border-radius : 10px;
+    width: max-content;
+}
+
+.breadcrumb-item a {
+    text-decoration: none;
+    color: #E0E1DD;
+}
+
+.breadcrumb-item.active {
+    color: #778DA9;
+}
+
+.textfield {
+    color: #E0E1DD;
+    background-color: #1B263B;
+    margin: 5%;
+    margin-top: 2%;
+    padding: 2%;
+    border-radius : 10px;
+    font-family: 'Gentium Book Plus', sans-serif;
+}
+
+/*css for CS50x page*/
+
+.book {
+    font-family: 'Gentium Book Plus', sans-serif;
+    font-size: 18px;
+}
+
+.book:first-letter {
+    font-size: 30px;
+    font-weight: medium;
+}
+
+.paratext {
+    font-family: 'Gentium Book Plus', sans-serif;
+    font-size: 18px;
+}
+
+/*css for Feedback page*/
+
+.form-label {
+    color:#E0E1DD;
+}
+
+/*css for About page*/
+
+table {
+    width: 85%;
+    border-collapse: collapse;
+    border-radius: 7px;
+    overflow:hidden;
+    position:relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+th, td {
+    padding: 12px;
+}
+
+tr {
+    background-color: #1B263B;
+    transition: 3s;
+}
+
+tr:hover {
+    background-color: #415A77;
+}
+
+td a, a:hover, a:active {
+    color: #E0E1DD;
+}
