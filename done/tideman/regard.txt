@@ -1,0 +1,22 @@
+        bool tmp[candidate_count];
+        for (int m = 0; m < candidate_count; m++)
+        {
+            bool t1 = false;
+            for (int n = 0; n < MAX; n++)
+            {
+                t1 = t1 || locked[m][n];
+            }
+            if (t1 == true)
+            {
+                tmp[m] = true;
+            }
+        }
+        bool t2 = false;
+        for (int j = 0; j < candidate_count; j++)
+        {
+            t2 = t2 && tmp[j];
+        }
+        if (t2 == true)
+        {
+            locked[pairs[i].winner][pairs[i].loser] = false;
+        }

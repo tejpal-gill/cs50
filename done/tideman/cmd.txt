@@ -1,0 +1,5 @@
+./tideman Alice Bob Charlie David < data1.txt
+
+./tideman Alice Bob Charlie David Emily Frankie Geena Henry Indira < data.txt
+
+

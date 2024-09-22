@@ -1,0 +1,11 @@
+sort1 uses: Bubble Sort
+
+How do you know?: It took the longest to sort the random list but was the fastest on sorted meaning it was checking for already sorted list.
+
+sort2 uses: Merge Sort
+
+How do you know?: It was the quickest and didn't show exponential increase in time but a log curve as the numbers went from 5000 to 50000.
+
+sort3 uses: Selection Sort
+
+How do you know?: It took equal time to sort random, reversed and sorted list. It also satisfied the n square behaviour.

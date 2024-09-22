@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            // TODO: Add code to check answers to questions
+            document.addEventListener('DOMContentLoaded', function() {
+                let p1 = document.querySelector('#p1');
+                let inc = document.querySelectorAll('.inc');
+                for(let i = 0; i < inc.length; i++)
+                    inc[i].addEventListener('click', function() {
+                        p1.innerHTML = 'Incorrect';
+                        inc[i].style.backgroundColor = '#FF2400';
+                });
+                let c = document.querySelector('.c');
+                    c.addEventListener('click', function() {
+                    p1.innerHTML = 'Correct';
+                    c.style.backgroundColor = '#29AB87';
+                });
+                document.querySelector('#f2').addEventListener('submit', function(event) {
+                    let input = document.querySelector('input');
+                    let feedback = document.querySelector('#p2');
+                    if (input.value == 'Russia'){
+                        feedback.innerHTML = 'Correct';
+                        input.style.backgroundColor = '#29AB87';
+                    }
+                    else {
+                        feedback.innerHTML = 'Incorrect';
+                        input.style.backgroundColor = '#FF2400';
+                    }
+                    event.preventDefault()
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <!-- TODO: Add multiple choice question here -->
+                <h3>Which is the largest desert in the world by area ?</h3>
+                <p id = "p1"></p>
+                <button class = "inc">Arctic</button>
+                <button class = "inc">Sahara</button>
+                <button class = "c">Antarctica</button>
+                <button class = "inc">Gobi</button>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <!-- TODO: Add free response question here -->
+                <h3>Which is the largest country in the world by area ?</h3>
+                <p id = "p2"></p>
+                <form id = "f2">
+                    <input type="text" autocomplete="off"></input>
+                    <button type="submit">Check Answer</button>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
