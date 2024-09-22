@@ -1,0 +1,56 @@
+{% extends "layout2.html" %}
+
+{% block title %}
+    Students
+{% endblock %}
+
+{% block main %}
+<p class="h2">Add a new Student</p>
+<br>
+<!-- Form for registering a new student -->
+<form class="row g-3 align-items-center justify-content-center" method="post">
+    <div class="col-auto">
+        <input type="text" class="form-control" placeholder="First Name" name="fname">
+    </div>
+    <div class="col-auto">
+      <input type="text" class="form-control" placeholder="Last Name" name="lname">
+    </div>
+    <div class="col-auto">
+        <label class="visually-hidden" for="autoSizingSelect">Class</label>
+        <select class="form-select" id="autoSizingSelect" name="grade">
+            {% for class in classes %}
+            <option value={{class.ClassID}}>{{class.ClassName}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="col-auto">
+        <input type="number" class="form-control" placeholder="Roll No." name="rolln" min="1" max="999">
+      </div>
+    <div class="col-auto">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+<br><br>
+
+<!-- Table containg all the enrolled students -->
+<table>
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Class</th>
+            <th>Roll no.</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for s in data %}
+        <tr>
+            <td>{{s.FirstName}}</td>
+            <td>{{s.LastName}}</td>
+            <td>{{s.ClassName}}</td>
+            <td>{{s.Rollno}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends "layout2.html" %}
+
+{% block title %}
+    Overview
+{% endblock %}
+
+{% block main %}
+<p class="h2">INSIGHT</p>
+<br>
+
+<!-- Div containing the chart-->
+<div class="chartfield">
+    <canvas id="myChart"aria-label="Hello ARIA World" role="img"></canvas>
+</div>
+
+<!-- Script for the implementing charts.js -->
+<script>
+    // Use Flask to inject the data into the template
+    const studentNames = JSON.parse('{{ data | safe }}');
+
+    // Extracting arrays for Chart.js
+    const studentIDs = studentNames.map(student => student.Name);
+    const Marks = studentNames.map(student => student.Marks);
+    const Spread = studentNames.map(student => student.Spread);
+
+    // Create Chart.js chart
+    const ctx = document.getElementById('myChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'scatter',
+        data: {
+            labels: studentIDs,
+            datasets: [
+                {
+                    label: 'Highlights',
+                    backgroundColor: 'rgba(75, 192, 192, 0.5)', // coloring
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    data: studentNames.map((student) => ({ x: student.Marks, y: student.Spread, label: student.Name })), // data
+                },
+            ],
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                x: {
+                    type: 'linear',
+                    position: 'bottom',
+                    title: {
+                        display: true, // x-axis lable
+                        text: 'Marks',
+                    },
+                    grid: {
+                        color: '#1B263B' // color of x-axis grid lines
+                    }
+                },
+                y: {
+                    type: 'linear',
+                    position: 'left',
+                    title: {
+                        display: true,
+                        text: 'Marks Spread', // y-axis lable
+                    },
+                    grid: {
+                        color: '#1B263B' // color of y-axis grid lines
+                    }
+                },
+            },
+        },
+    });
+</script>
+
+{% endblock %}

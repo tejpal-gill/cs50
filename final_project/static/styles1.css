@@ -1,0 +1,86 @@
+/* Resources :
+colors: https://coolors.co/palette/0d1b2a-1b263b-415a77-778da9-e0e1dd
+fonts: https://fonts.google.com/
+brand: https://www.ddesignerr.com/wp-content/uploads/2012/05/038.gif
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #0D1B2A;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* Branding and credits */
+
+.branding {
+    color: #E0E1DD;
+    background-color: #1B263B;
+    background:url('https://www.ddesignerr.com/wp-content/uploads/2012/05/038.gif') center;
+    width: 45%;
+    height: 80%;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+.branding h1 {
+    font-weight: bold;
+    margin-top: 35vh;
+    color: #E0E1DD;
+    text-align: center;
+}
+
+footer {
+    justify-content: center;
+    margin-top: auto;
+    margin-bottom: 2vh;
+    font-size: 12px;
+    color: #E0E1DD;
+}
+
+a {
+    color: #E0E1DD;
+    transition: 0.2s;
+}
+
+a:hover{
+    color: #778DA9;
+}
+
+/* Textfield div */
+
+.textfield {
+    color: #E0E1DD;
+    background-color: #1B263B;
+    padding: 2%;
+    border-radius: 10px;
+    margin: auto;
+    width: 90%;
+    max-width: 45%;
+}
+
+/* Css to make it mobile friendly */
+
+@media (max-width: 768px) {
+    .textfield {
+        margin-right: auto;
+        max-width: 70%;
+    }
+
+    .branding {
+        display: none;
+    }
+}

@@ -1,0 +1,29 @@
+{% extends "layout1.html" %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block main %}
+<form id="form" action="/login" method="post">
+    <h1 class="form_title">Login</h1>
+    <br>
+    <div class="mb-3">
+        <label for="FormName" class="form-label">Username</label>
+        <input type="text" class="form-control" id="InputName" name="username" aria-describedby="emailHelp" style="background-color:#E0E1DD;">
+    </div>
+    <div class="mb-3">
+        <label for="FormName" class="form-label">Password</label>
+        <input type="password" class="form-control" id="InputPass" name="password" aria-describedby="emailHelp" style="background-color:#E0E1DD;">
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" onclick="passView()">
+        <label class="form-check-label" for="flexCheckDefault">Show Password</label>
+    </div>
+    <br>
+    <div class="mb-3">
+        <p>Don't have an account yet ? <a href="/signup" class="link">Signup</a></p>
+    </div>
+    <button type="submit" class="btn btn-primary">Confirm</button>
+</form>
+{% endblock %}

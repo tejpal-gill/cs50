@@ -1,0 +1,129 @@
+{% extends "layout2.html" %}
+
+{% block title %}
+    Analyse
+{% endblock %}
+
+{% block main %}
+<p class="h2">Analysis</p>
+<br>
+<!-- Form for choosing the class and subject, which to analyse-->
+<form class="row g-3 align-items-center justify-content-center" method="post" action="{{ url_for('analyse') }}">
+    <div class="col-auto">
+        <label class="visually-hidden" for="autoSizingSelect">Class</label>
+        <select class="form-select" id="autoSizingSelect" name="grade">
+            {% for class in classes %}
+            <option value={{class.ClassID}}>{{class.ClassName}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="col-auto">
+        <label class="visually-hidden" for="autoSizingSelect">Subject</label>
+        <select class="form-select" id="autoSizingSelect" name="subject">
+            {% for sub in subjects %}
+            <option value={{sub.SubjectID}}>{{sub.SubjectName}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="col-auto">
+        <button type="submit" name="form1_submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+<br>
+
+<!-- Div containing the chart-->
+<div class="chartfield">
+    <canvas id="myChart" aria-label="Hello ARIA World" role="img"></canvas>
+</div>
+
+
+<script>
+    // Use Flask to inject the data into the template
+    const studentNames = JSON.parse('{{ data | safe }}');
+    const datasets = [];
+
+    // Group data by TestID
+    const groupedData = {};
+    studentNames.forEach(student => {
+        const testID = student.TestID;
+
+        if (!(testID in groupedData)) {
+            groupedData[testID] = {
+                testName: student.TestName,
+                data: [],
+            };
+        }
+
+        groupedData[testID].data.push({
+            Name: student.Name,
+            Marks: student.Marks,
+            Average: student.Average,
+        });
+    });
+
+    // Create Chart.js chart
+    const ctx = document.getElementById('myChart').getContext('2d');
+
+    // Iterate over grouped data and create a dataset for each test
+    for (const testID in groupedData) {
+        const testData = groupedData[testID].data;
+        const testName = groupedData[testID].testName;
+
+        datasets.push({
+            label: `${testName}`,
+            backgroundColor: `rgba(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, 0.8)`,
+            borderColor: 'transparent',
+            data: testData.map(student => ({ x: student.Marks, y: student.Average, label: student.Name })),
+        });
+    }
+
+    // Chart settings
+    new Chart(ctx, {
+        type: 'scatter',
+        data: {
+            datasets: datasets
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false, // making chart size dynamic
+            scales: {
+                x: {
+                    type: 'linear',
+                    position: 'bottom',
+                    title: {
+                        display: true,
+                        text: 'Marks', // x-axis lable
+                    },
+                    grid: {
+                        color: '#1B263B' // color of x-axis grid lines
+                    }
+                },
+                y: {
+                    type: 'linear',
+                    position: 'left',
+                    title: {
+                        display: true,
+                        text: 'Deviation from Average', // y-axis lable
+                    },
+                    grid: {
+                        color: '#1B263B' // color of y-axis grid lines
+                    }
+                },
+            },
+            plugins: {  // Labelling the Data points
+                tooltip: {
+                    callbacks: {
+                        label: function (context) {
+                            const data = context.dataset.data[context.dataIndex];
+                            return `${data.label}\n(${data.x},${data.y})`;
+                        }
+                    }
+                }
+            }
+        },
+    });
+</script>
+
+
+{% endblock %}
+

@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #0D1B2A;
+}
+
+/* Size n Color for brand */
+nav .navbar-brand {
+    font-size: xx-large;
+}
+
+p {
+    color: #E0E1DD;
+}
+
+/* Table css */
+
+table {
+    width: 85%;
+    border-collapse: collapse;
+    border-radius: 7px;
+    overflow:hidden;
+    position:relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+th, td {
+    color: #E0E1DD;
+    padding: 12px;
+}
+
+tr:nth-child(even) {
+    background-color: #29394E;
+}
+
+tr:nth-child(odd) {
+    background-color: #1B263B;
+}
+
+th {
+    background-color: #29394E;
+}
+
+
+/* Chart.js */
+.chartfield {
+    max-width: 80vw;
+    height: 50vh;
+    margin: auto;
+}

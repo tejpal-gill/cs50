@@ -1,0 +1,43 @@
+{% extends "layout2.html" %}
+
+{% block title %}
+    Tests
+{% endblock %}
+
+{% block main %}
+<p class="h2">Add a new Test</p>
+<br>
+<!-- Table for insering Marks for each student -->
+<form method="post">
+    <input type="hidden" name="grade" value="{{ grade }}">
+    <input type="hidden" name="test" value="{{ test }}">
+    <table>
+        <thead>
+            <tr>
+                <th>Roll no.</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Marks</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for s in data %}
+            <tr>
+                <td>{{s.Rollno}}</td>
+                <td>{{s.FirstName}}</td>
+                <td>{{s.LastName}}</td>
+                <td>
+                    <!-- Form controls in a table cell -->
+                    <div class="col-auto">
+                        <input type="number" class="form-control" placeholder="Marks" name="marks" min="1" max="100">
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br> <br>
+    <!-- Submit button -->
+    <button type="submit" class="btn btn-primary">Confirm</button>
+</form>
+{% endblock %}

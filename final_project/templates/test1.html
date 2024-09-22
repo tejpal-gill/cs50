@@ -1,0 +1,66 @@
+{% extends "layout2.html" %}
+
+{% block title %}
+    Tests
+{% endblock %}
+
+{% block main %}
+<p class="h2">Add a new Test</p>
+<br>
+<!-- Form conducting a new test -->
+<form class="row g-3 align-items-center justify-content-center" method="post">
+    <div class="col-auto">
+        <input type="text" class="form-control" placeholder="Test" name="testname">
+    </div>
+    <div class="col-auto">
+        <input type="date" class="form-control" placeholder="Test" name="date">
+    </div>
+    <div class="col-auto">
+        <label class="visually-hidden" for="autoSizingSelect">Class</label>
+        <select class="form-select" id="autoSizingSelect" name="grade">
+            {% for class in classes %}
+            <option value={{class.ClassID}}>{{class.ClassName}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="col-auto">
+        <label class="visually-hidden" for="autoSizingSelect">Subject</label>
+        <select class="form-select" id="autoSizingSelect" name="subject">
+            {% for sub in subjects %}
+            <option value={{sub.SubjectID}}>{{sub.SubjectName}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <!-- Submit button -->
+    <div class="col-auto">
+        <button type="submit" name="form1_submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+<br><br>
+
+
+<!-- Table showing all the past tests -->
+<table>
+    <thead>
+        <tr>
+            <th>Test Name</th>
+            <th>Date</th>
+            <th>Class</th>
+            <th>Subject</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for t in tests %}
+        <tr>
+            <td>{{t.TestName}}</td>
+            <td>{{t.date}}</td>
+            <td>{{t.ClassName}}</td>
+            <td>{{t.SubjectName}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+
+
+
