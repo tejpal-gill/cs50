@@ -1,0 +1,2 @@
+The average of value of top 100 songs is a reasoneble method but this can be improved by a weigthed approcach.
+Top 10 songs should have considerably more weight than the bottom 10.
